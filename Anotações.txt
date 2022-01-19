@@ -126,5 +126,20 @@ O JSX necessita de uma key única para cada elemento da array
 É comum usarmos o map direto na array como uma expressão, retornandno um elemento para cada item novo da array 
 
 
+================= AULA 0209 =================
 
+- Eventos
 
+Podemos atribuir eventos diretamente asos elementos JSX como um atributo. Os eventos são sintéticos, ou seja, são criados pelo próprio React porém seguindo as epecificações da W3C (e funcionam igualmente nos diversos browsers que o React suporta).
+
+→ Window/document 
+
+Eventos no window/document ou qualquer elemento fora do React, devem ser adicionados com Javascript normalmente usando o addEventListener
+
+================= AULA 0210 =================
+
+- Componentes
+O ideal é dividir o aplcativo em pequenos compponentes para facilitar a manutenção do mesmo.
+
+- Interface 
+Não existe limite para a composição de componentes, eles podem ser desde componentes gerais como Header e footer, ate micro componentes como button e input 

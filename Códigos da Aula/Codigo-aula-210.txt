@@ -1,0 +1,108 @@
+
+Em src criar 2 arquivos que serão nossos componentes:
+- Footer.js
+-Header.js
+
+
+******** Código do arquivo Footer.js ********
+
+import React from "react";
+
+const Footer = () => {
+  return (
+    <footer>
+      <p>Todos os direitos reservados</p>
+    </footer>
+  );
+};
+
+export default Footer
+
+
+******** Código do arquivo Header.js ********
+
+import Reat from 'react'
+
+
+const Header = () => {
+    return <header>Header</header>
+}
+
+export default Header
+
+
+
+Em src, criar uma diretório com o nome Forms, neste repositório criar 3 arquivos que serão os componentes para formulario:
+- Button.js;
+- Form.js;
+- Input.js;
+
+
+******** Código do arquivo Button.js ********
+import React from 'react';
+
+const Button = () => {
+  return <button>Enviar</button>;
+};
+
+export default Button;
+
+******** Código do arquivo Input.js ********
+
+import React from 'react';
+
+const Input = () => {
+  return <input type='text'/>
+};
+
+export default Input;
+
+******** Código do arquivo Form.js ********
+
+Neste arquivo vamos importar o Button e o Input para ser usado na aplicação, e o codigo ficara da seguinte maneira:
+
+
+import React from "react";
+import Button from "./Button";
+import Input from "./Input";
+
+const Form = () => {
+  return (
+    <form>
+      <p>
+        <label htmlFor="nome">Nome</label>
+        <Input />
+      </p>
+      <p>
+        <label htmlFor="email">Email</label>
+        <Input />
+      </p>
+      <Button />
+    </form>
+  );
+};
+
+export default Form;
+
+
+Já podemos inserir os componentes no arquivo App.js e o codigo será:
+
+
+
+import React from "react";
+import Header from "./Header";
+import Footer from "./Footer"
+import Form from "./Forms/Form";
+
+const App = () => {
+  return (
+    <div>
+      <Header />
+      <Form/>
+      <Footer/>
+      
+    </div>
+  );
+};
+
+export default App;
