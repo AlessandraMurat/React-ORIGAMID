@@ -1,0 +1,39 @@
+import React from 'react'
+
+const App = () => {
+     
+   //Estilo interno
+   
+   const estiloP = {
+     color: 'tomato',
+     fontSize: '30px'
+   }
+
+   //Expressões e Variáveis 
+   
+   //Variáveis
+
+   const titulo = <h1>Esse é um título</h1>
+   const random = Math.random();
+   const ativo = true
+   
+   //Expressões 
+
+   const carro = {
+     marca: 'Gol',
+     cor: 'branco'
+
+   }
+
+   return (
+   <>
+   {titulo}
+   <p className= {ativo ? 'ativo' : 'inativo'}>{random * 20}</p>
+   <p>{new Date().getFullYear()}</p>
+   <p style={estiloP}>Meu carro é um {carro.marca} e sua cor é {carro.cor}</p>
+   </>
+   );
+
+}
+
+export default App;
