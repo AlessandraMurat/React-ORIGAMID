@@ -1,0 +1,152 @@
+========================= Aula 212 Exercicio =========================
+
+// Replique a interface como a apresentada na aula
+// Utilize a array abaixo para mostrar os produtos
+// Quebre em componentes o que precisar ser reutilizado
+// Dica: const { pathname } = window.location; (puxa o caminho do URL)
+
+
+Em src criar os seguintes componentes:
+
+Header.js
+Home.js
+Produto.js
+Produtos.js
+Titulo.js
+
+
+****************** CÓDIGO DO ARQUIVO Header.js ******************
+
+//Neste arquivo criamos os links e passamos o caminho para acessar a página
+
+import React from "react";
+
+const Header = () => {
+  return (
+    <div>
+      <header>
+          <ul>
+              <li>
+                  <a href="/">Home</a>
+              </li>
+              <li>
+                  <a href="/produtos">Produtos</a>
+              </li>
+          </ul>
+      </header>
+    </div>
+  );
+};
+
+export default Header;
+
+
+
+****************** CÓDIGO DO ARQUIVO Home.js ******************
+
+Esta é a pagina inicial, sendo composta apenas pelo título
+
+mport React from 'react';
+import Titulo from './Titulo';
+
+const Home = () => {
+  return <section>
+      <Titulo texto='Home'/>
+      <p>Essa é a home</p>
+  </section>;
+};
+
+export default Home;
+
+
+
+****************** CÓDIGO DO ARQUIVO Produto.js ******************
+
+Neste arquivo é onde passamos todas as propriedades e estrutura do produto e estilização
+
+import React from "react";
+
+const Produto = ({ nome, propriedades }) => {
+  return (
+    <div style={{border: '1px solid', margin: '1rem 0', padding: '1rem'}}>
+      <p>{nome}</p>
+      <ul>
+        {propriedades.map((propriedades) => (
+          <li>{propriedades}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default Produto;
+
+****************** CÓDIGO DO ARQUIVO Produtos.js ******************
+Neste arquivo é a página de Todos os produtos, assim temos a lista de produtos puxando as props que chamamos no arquivo Produto.js
+
+import React from "react";
+import Produto from "./Produto";
+import Titulo from "./Titulo";
+
+const produtos = [
+  { nome: "Notebook", propriedades: ["16gb ram", "512gb"] },
+  { nome: "Smartphone", propriedades: ["2gb ram", "128gb"] },
+];
+
+const Produtos = () => {
+  return (
+    <section>
+      <Titulo texto="Produtos" />
+      {produtos.map((produto) => (
+        <Produto key={produto.nome} {...produto} />
+      ))}
+    </section>
+  );
+};
+
+export default Produtos;
+
+****************** CÓDIGO DO ARQUIVO Titulo.js ******************
+
+Neste arquivo estiizamos como queremos os títulos 
+
+import React from 'react';
+
+const Titulo = ({texto}) => {
+  return <h1 style={{color: '#FF6347'}}>{texto}</h1>;
+};
+
+export default Titulo;
+
+****************** CÓDIGO DO ARQUIVO APP.js ******************
+
+Para este exercício utilizamos o pathnome para faze a alternância de páginas atráves da estrutura condicional e retornamos o conteúdo
+
+import React from "react";
+import Header from "./Header";
+import Home from "./Home";
+import Produtos from "./Produtos";
+
+
+
+
+const App = () => {
+  const { pathname } = window.location;
+
+  let Pagina;
+  if (pathname === "/produtos") {
+    Pagina = Produtos;
+  } else {
+    Pagina = Home;
+  }
+
+  return (
+    <setion>
+      <Header />
+      <Pagina />
+    </setion>
+  );
+};
+
+export default App;
+
