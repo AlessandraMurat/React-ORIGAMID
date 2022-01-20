@@ -143,3 +143,24 @@ O ideal é dividir o aplcativo em pequenos compponentes para facilitar a manuten
 
 - Interface 
 Não existe limite para a composição de componentes, eles podem ser desde componentes gerais como Header e footer, ate micro componentes como button e input 
+
+
+================= AULA 0211 =================
+
+
+- Propriedades 
+
+Assim como uma função pode receber argumentos, podemos também passar argumentos aos componentes. Esses são conhecidos como propriedades ou props
+
+- Children
+
+Se utilizarmos o componente abrindo e fechando o mesmo, p conteúdo interno deste será acessado através da propiedade 
+
+
+- Rest e Spread 
+
+Usamos o rest e spread quando n~sao sabemos todas as propriedadess que o componente pode receber
+
+- Dados
+
+Podemos passar diferentes tipos de dados e até outros componentes nas propriedades, como no exemplo da aula passamos um array.

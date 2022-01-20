@@ -1,0 +1,103 @@
+========================= PARTE 1 DA AULA =========================
+
+import React from "react";
+
+// const Titulo = (props) => {
+//   return <h1 style={{ color: props.cor }}>{props.texto}</h1>;
+// };
+
+// Usando a destroturação
+const Titulo = ({cor, texto, children}) => {
+  return <h1 style={{color: cor}}>{texto}, {children}</h1>;
+};
+
+
+const App = () => {
+  return (
+    <section>
+      <Titulo cor="tomato" texto="Meu primeiro título" >
+        <p>Teste</p>
+      </Titulo>
+      <Titulo cor="purple" texto="Meu segundo título" />
+    </section>
+  );
+};
+
+export default App;
+
+
+========================= PARTE 2 DA AULA =========================
+
+
+Criar 1 pasta em scr com o nome de Form, nessa pasta criar 3 arquivos:
+
+Button.js;
+Form.js;
+Input.js;
+
+
+****************** CÓDIGO DO ARQUIVO Button.js ******************
+
+import React from 'react';
+
+const Button = (props) => {
+    console.log(props)
+  return <button>Clique</button>;
+};
+
+export default Button;
+
+
+****************** CÓDIGO DO ARQUIVO Form .js ******************
+
+import React from "react";
+import Button from "./Button";
+import Input from "./Input";
+
+const Form = () => {
+
+    // Passando outros tipos de dados como array
+
+    const arr = ['item1', 'item2']
+
+  return (
+    <div>
+      <Input id="email" label="Email" required/>
+      <Input id="password" type="password" label="Password"/>
+      <Button items={arr} />
+    </div>
+  );
+};
+
+export default Form;
+
+****************** CÓDIGO DO ARQUIVO Input.js ******************
+
+
+import React from "react";
+
+const Input = ({ label, id,...props }) => {
+  return (
+    <div style={{margin: '1rem 0'}}>
+      <label htmlFor={id}>{label}</label>
+      <input id={id} type="text" {...props} />
+    </div>
+  );
+};
+
+export default Input;
+
+
+****************** CÓDIGO DO ARQUIVO App.js ******************
+
+import React from "react";
+import Form from "./Form/Form";
+
+
+const App = () => {
+ return <div>
+   <Form/>
+ </div>
+};
+
+export default App;
